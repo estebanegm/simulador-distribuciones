@@ -100,5 +100,4 @@ col3.metric("Tamano de muestra", f"{n:,}")
 
 # FIRMA
 st.markdown("---")
-st.caption("Datos generados aleatoriamente con tamano de muestra n = 10,000")
 st.caption("Elaborado por Esteban E. G. M.")
