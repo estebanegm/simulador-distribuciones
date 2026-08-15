@@ -9,4 +9,4 @@ App interactiva para generar datos aleatorios de distribuciones Normal, t de Stu
 - Cálculo automático de media y desviación estándar
 
 ## Enlace
-[https://tu-usuario-tu-app.streamlit.app](https://tu-usuario-tu-app.streamlit.app)
+[Simulador_de_distribuciones](https://simulador-de-distribuciones.streamlit.app/)
