@@ -27,8 +27,15 @@ opcion = st.sidebar.selectbox(
 st.sidebar.markdown("---")
 st.sidebar.subheader("Parametros")
 
-# ENTRADA DE PARAMETROS
-n = 10000
+# ENTRADA DEL TAMAÑO DE MUESTRA
+n = st.sidebar.number_input(
+    "Numero de datos a generar (n):", 
+    value=10000, 
+    min_value=100, 
+    max_value=100000, 
+    step=1000,
+    format="%d"
+)
 
 if opcion == "Normal":
     mu = st.sidebar.number_input("Media (u):", value=0.0, step=0.5, format="%.1f")
@@ -94,4 +101,4 @@ col3.metric("Tamano de muestra", f"{n:,}")
 # FIRMA
 st.markdown("---")
 st.caption("Datos generados aleatoriamente con tamano de muestra n = 10,000")
-st.caption("Hecho por Esteban E. G. M.")
+st.caption("Elaborado por Esteban E. G. M.")
