@@ -12,11 +12,11 @@ st.set_page_config(
 
 # TITULO
 st.title("Simulador de Distribuciones de Probabilidad")
-st.markdown("*Genera datos aleatorios, visualiza histogramas y compara con la densidad teorica*")
+st.markdown("*Genera datos aleatorios, visualiza histogramas y compara con la densidad teórica*")
 st.markdown("---")
 
 # MENU EN BARRA LATERAL
-st.sidebar.header("Selecciona una distribucion")
+st.sidebar.header("Selecciona una distribución")
 
 opcion = st.sidebar.selectbox(
     "Distribucion:",
@@ -25,11 +25,11 @@ opcion = st.sidebar.selectbox(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.subheader("Parametros")
+st.sidebar.subheader("Parámetros")
 
 # ENTRADA DEL TAMAÑO DE MUESTRA
 n = st.sidebar.number_input(
-    "Numero de datos a generar (n):", 
+    "Número de datos a generar (n):", 
     value=10000, 
     min_value=100, 
     max_value=100000, 
@@ -39,7 +39,7 @@ n = st.sidebar.number_input(
 
 if opcion == "Normal":
     mu = st.sidebar.number_input("Media (u):", value=0.0, step=0.5, format="%.1f")
-    sigma = st.sidebar.number_input("Desviacion estandar (s):", value=1.0, min_value=0.1, step=0.5, format="%.1f")
+    sigma = st.sidebar.number_input("Desviación estándar (s):", value=1.0, min_value=0.1, step=0.5, format="%.1f")
     
     datos = np.random.normal(loc=mu, scale=sigma, size=n)
     x = np.linspace(mu - 4*sigma, mu + 4*sigma, 1000)
@@ -74,12 +74,12 @@ media = np.mean(datos)
 desviacion = np.std(datos)
 
 # MOSTRAR HISTOGRAMA
-st.markdown("<h3 style='text-align: center;'>Histograma vs Densidad Teorica</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>Histograma vs Densidad Teórica</h3>", unsafe_allow_html=True)
 
 fig, ax = plt.subplots(figsize=(10, 5))
 
 ax.hist(datos, bins=50, density=True, alpha=0.6, color="skyblue", edgecolor='black', label="Datos simulados")
-ax.plot(x, y, color="red", linewidth=2.5, label="Densidad teorica")
+ax.plot(x, y, color="red", linewidth=2.5, label="Densidad teórica")
 
 ax.set_title(titulo, fontsize=14, fontweight='bold')
 ax.set_xlabel(xlabel, fontsize=12)
@@ -96,7 +96,7 @@ st.pyplot(fig)
 col1, col2, col3 = st.columns(3)
 col1.metric("Media muestral", f"{media:.4f}")
 col2.metric("Desviacion estandar", f"{desviacion:.4f}")
-col3.metric("Tamano de muestra", f"{n:,}")
+col3.metric("Tamaño de muestra", f"{n:,}")
 
 # FIRMA
 st.markdown("---")
