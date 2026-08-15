@@ -31,7 +31,7 @@ st.sidebar.subheader("Parámetros")
 n = st.sidebar.number_input(
     "Número de datos a generar (n):", 
     value=10000, 
-    min_value=100, 
+    min_value=1, 
     max_value=100000, 
     step=1000,
     format="%d"
